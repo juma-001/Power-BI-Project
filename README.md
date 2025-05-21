@@ -1,6 +1,6 @@
-# Power-BI-Project
+# Power-BI-Project 
 
-## POWER BI PROJECT
+## POWER BI PROJECT PhoneNow Call Center
 
 The goal of the analysis is to identify key business insights and improve decision-making based on customer churn, revenue trends, and service efficiency.
 
@@ -20,6 +20,38 @@ The goal of the analysis is to identify key business insights and improve decisi
 3.	Optimize call center & tech support for faster resolution and higher satisfaction.
 4.	Improve contract structures to shift customers towards long-term commitments.
 5.	Increase automated payments adoption to ensure more reliable revenue streams.
+   
+## Exploratory Data analysis
+
+ 1. Data Import & Initial Cleaning  
+- Imported all CSV files i.e. call logs, customer info, agent performance into Power Query.  
+- Removed irrelevant columns, duplicate IDs, timestamps without context  
+- Standardized formats, dates, phone numbers across tables and currency
+
+ 2. Deduplication & Error Handling  
+- Identified and removed 120+ duplicate call records using `Remove Duplicates`.  
+- Replaced `NULL` values in "call duration" with zeros for accurate averages.  
+- Flagged outliers, i.e. calls > 6 hours for review.  
+
+ 3. Data Modeling & Relationships  
+- Created a star schema with:  
+  - Fact table: Call logs linked to customer/agent dimensions.  
+  - Dimension tables: Customer demographics, agent hierarchies.  
+- Established relationships using `CustomerID` and `AgentID` as keys.  
+
+ 4. Feature Engineering  
+- Added calculated columns:  DAX
+     - Call abandonment rate: (Abandoned Calls / Total Calls).
+     - Agent efficiency score: (Calls Handled / Avg. Handle Time).  
+
+ 5. Data Validation  
+- Cross-checked KPIs (e.g., ASA, CSAT) against source reports for consistency.  
+- Detected and corrected 15+ mismatched agent IDs causing join errors.  
+
+ 6. Output & Documentation  
+- Exported cleaned tables to Power BI for visualization.  
+- Documented all steps in Power Query’s Applied Steps for reproducibility.  
+
 
 ## FINDINGS
 ### Customer Churn & Risk Analysis
